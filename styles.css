@@ -3,153 +3,144 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-}
-
-main {
-    padding: 1rem;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem;
-    position: absolute;
-    bottom: 0;
+    background-color: #ffe6e6; /* Fondo rosado */
+  }
+  
+  /* Estilos para el modal */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
     width: 100%;
-}
-
-/* Estilos específicos para el ecommerce */
-.planes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.plan {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    width: 300px;
-    text-align: center;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .modal-contenido {
     background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.plan h3 {
-    color: #333;
-}
-
-.plan p {
-    color: #666;
-}
-
-.plan button {
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cerrar {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .cerrar:hover,
+  .cerrar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Estilos específicos para los formularios */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
     background-color: #0080ff;
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 8px 12px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
     font-weight: bold;
     transition: background-color 0.2s ease;
-}
-
-.plan button:hover {
+  }
+  
+  button:hover {
     background-color: #0066cc;
-}
-
-/* Estilos para el modal del carrito */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-contenido {
-    background-color: #f9f9f9;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ajusta la altura para centrar verticalmente */
+  }
+  
+  /* Estilos para el logo */
+  img {
+    max-width: 700px; /* Ajusta el tamaño máximo de la imagen */
+  }
+  
+  /* Estilos para el botón "APRENDE DESDE LA COMODIDAD" */
+  .aprende-btn-container {
+    margin-top: 20px;
+  }
+  
+  .aprende-btn {
+    background-color: #993366; /* Fondo morado */
+    color: #fff;
+    border: 2px solid #fff; /* Bordes blancos */
+    padding: 12px 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.cerrar {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.cerrar:hover,
-.cerrar:focus {
-    color: #000;
-    text-decoration: none;
     cursor: pointer;
-}
-/* Estilos para el modal del carrito */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-contenido {
-    background-color: #f9f9f9;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.cerrar {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
     font-weight: bold;
-}
-
-.cerrar:hover,
-.cerrar:focus {
-    color: #000;
-    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .aprende-btn:hover {
+    background-color: #802040; /* Color morado más oscuro al pasar el ratón */
+  }
+  
+  /* Estilos específicos para los formularios */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .campo {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Establece el ancho al 100% */
+  }
+  
+  .boton {
+    background-color: #0080ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
-}
-
-#listaCarrito {
-    list-style-type: none;
-    padding: 0;
-}
-
-#listaCarrito li {
-    padding: 8px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-#totalCarrito {
     font-weight: bold;
-    text-align: right;
-}
+    transition: background-color 0.2s ease;
+    width: 100%; /* Establece el ancho al 100% */
+  }
+  
+  .boton:hover {
+    background-color: #0066cc;
+  }
+  
+
+  
