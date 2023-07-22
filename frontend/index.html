@@ -120,6 +120,8 @@
         const password = formData.get('password');
         const fullname = formData.get('fullname');
 
+        console.log(username,password,fullname,"aquiii")
+
         try {
           const response = await fetch('/api/auth/register', {
             method: 'POST',

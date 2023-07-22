@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientación Vocacional</title>
+    <link rel="stylesheet" href="mainStyles.css">
+</head>
+<body>
+    <header>
+        <h1>Orientación Vocacional</h1>
+        <button onclick="mostrarModalCarrito()">Mostrar Carrito</button>
+    </header>
+
+    <main>
+        <h2>Planes de Pago</h2>
+        <div class="planes">
+            <div class="plan">
+                <h3>Mensual</h3>
+                <p>Acceso ilimitado por 30 días</p>
+                <p>Precio: $10/mes</p>
+                <button onclick="agregarAlCarrito('Mensual', 10)">Agregar al Carrito</button>
+            </div>
+            <div class="plan">
+                <h3>Anual</h3>
+                <p>Acceso ilimitado por 365 días</p>
+                <p>Precio: $100/año</p>
+                <button onclick="agregarAlCarrito('Anual', 100)">Agregar al Carrito</button>
+            </div>
+            <div class="plan">
+                <h3>Prueba Gratuita</h3>
+                <p>Acceso gratuito por 7 días</p>
+                <p>Precio: Gratis</p>
+                <button onclick="agregarAlCarrito('Prueba Gratuita', 0)">Agregar al Carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal del Carrito -->
+    <div id="modalCarrito" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModalCarrito()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="listaCarrito">
+                <!-- Aquí se mostrarán los elementos del carrito dinámicamente -->
+            </ul>
+            <p id="totalCarrito">Total: $0</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Orientación Vocacional</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
+
