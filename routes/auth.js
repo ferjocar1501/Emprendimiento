@@ -6,46 +6,57 @@ const router = express.Router();
 
 // Ruta para el registro de usuario
 router.post('/register', async (req, res) => {
-  try {
-    const { correo, contraseña } = req.body;
+  console.log("regsitrandoooo")
+    const { username, password } = req.body;
+    try{
+      const [existingUser] = await pool.query('SELECT * FROM Ejemplo')
+      console.log(existingUser)
+      
 
-    // Verificar si el usuario ya existe en la base de datos
-    const [existingUser] = await pool.query('SELECT * FROM base WHERE correo = ?', [correo]);
-    if (existingUser.length > 0) {
-      req.flash('error', 'El usuario ya existe. Intenta con otro.');
-      return res.redirect('/');
+    }catch(error){
+      console.log("Algo fallo")
+      console.log(error)
     }
 
-    // Hashear la contraseña antes de guardarla
-    const hashedPassword = await bcrypt.hash(contraseña, 10);
+    return res.status("200").json({msg:"bien"})
 
-    // Insertar el nuevo usuario en la base de datos
-    await pool.query('INSERT INTO base (correo, contraseña) VALUES (?, ?)', [correo, hashedPassword]);
+  //   // Verificar si el usuario ya existe en la base de datos
+  //   const [existingUser] = await pool.query('SELECT * FROM base WHERE username = ?', [username]);
+  //   if (existingUser.length > 0) {
+  //     req.flash('error', 'El usuario ya existe. Intenta con otro.');
+  //     return res.redirect('/');
+  //   }
 
-    req.flash('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
-    res.redirect('/');
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error en el servidor.');
-  }
+  //   // Hashear la password antes de guardarla
+  //   const hashedPassword = await bcrypt.hash(password, 10);
+
+  //   // Insertar el nuevo usuario en la base de datos
+  //   await pool.query('INSERT INTO base (username, password) VALUES (?, ?)', [username, hashedPassword]);
+
+  //   req.flash('success', 'Registro exitoso. Ahora puedes iniciar sesión.');
+  //   res.redirect('/');
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).send('Error en el servidor.');
+  // }
 });
 
 // Ruta para el inicio de sesión
 router.post('/login', async (req, res) => {
   try {
-    const { correo, contraseña } = req.body;
+    const { username, password } = req.body;
 
     // Buscar al usuario en la base de datos
-    const [user] = await pool.query('SELECT * FROM base WHERE correo = ?', [correo]);
+    const [user] = await pool.query('SELECT * FROM base WHERE username = ?', [username]);
     if (user.length === 0) {
-      req.flash('error', 'Usuario o contraseña incorrectos.');
+      req.flash('error', 'Usuario o password incorrectos.');
       return res.redirect('/');
     }
 
-    // Verificar la contraseña
-    const isPasswordValid = await bcrypt.compare(contraseña, user[0].contraseña);
+    // Verificar la password
+    const isPasswordValid = await bcrypt.compare(password, user[0].password);
     if (!isPasswordValid) {
-      req.flash('error', 'Usuario o contraseña incorrectos.');
+      req.flash('error', 'Usuario o password incorrectos.');
       return res.redirect('/');
     }
 

@@ -9,14 +9,14 @@ const app = express();
 // Configuración de Express
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-  })
-);
-app.use(flash());
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//   })
+// );
+// app.use(flash());
 
 // Rutas para el registro, inicio de sesión y otras operaciones de usuarios
 app.use("/api/auth", authRoutes); // Aquí se utiliza el prefijo /api/auth
